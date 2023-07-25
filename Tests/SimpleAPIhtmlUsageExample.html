@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Crude API GET example</title>
+  </head>
+	
+  <body>
+	  <h1>API example 1: GET</h1>
+	  <p>This is a simple html GET async fetch from a crude API :</p>
+	  <p>Click <a onclick="booya();" style="color:red; border: 2px;">[DO API CALL]</a> 
+		  to make the javascript do an api call to:<br/> 
+	  <a id='txtcallurl' target="_blank"></a>
+	  </p>
+	  <script>
+		  // this example based on the answer from here:
+		  //https://stackoverflow.com/questions/36975619/how-to-call-a-rest-web-service-api-from-javascript/51854096#51854096
+		  
+		  // for testing each of the pull possibilities in the API
+		  apiURL = 'https://northberry.net/APIcrudStubExample/FunnyName/GimmeAWholeBunchOfFunnyNames';
+		  apiURL = 'https://northberry.net/APIcrudStubExample/FunnyName';
+		  apiURL = 'https://northberry.net/APIcrudStubExample/FunnyName/GimmeXFunnyNames?cnt=5000';
+		  //apiURL = 'https://icanhazdadjoke.com/'; //something that doesn't work anymore...
+		  datadumpID = 'txtDataDump';
+		  logID = 'txtLog';
+		  //header values for the proper way to do it...
+		  //headersetting = 'Accept';
+		  //headervalue = 'application/json';
+		  //headervalue = 'text/json'; //try this to see the difference (if any)...		  
+		  //headervalue = 'text';
+		  //headervalue = 'json';
+		  //headervalue = '';
+		  
+		  ld = '<br/> | ';
+		  document.getElementById("txtcallurl").innerHTML = apiURL;
+		  document.getElementById("txtcallurl").href = apiURL;
+		  async function booya() {
+			  document.getElementById(logID).innerHTML = " ** starting await fetch";			  
+			  //const response = await fetch(apiURL, { headers: { headersetting: headervalue } }); //the "proper" way to do it...
+			  const response = await fetch(apiURL); //try this - just for giggles..
+			  document.getElementById(logID).innerHTML += ld + "done await fetch, starting await response";
+			  const myJson = await response.json(); //extract JSON from the http response
+			  document.getElementById(logID).innerHTML += ld + "done await response, starting raw dump";
+			  //dumping it - in a normal app you'd do processing here
+			  document.getElementById(datadumpID).innerHTML = "raw dump: <br/>" + myJson + "<br/>";
+			  document.getElementById(logID).innerHTML += ld + "done raw dump, starting json dump";
+			  // crude processing of json example  
+			  // using docs in https://www.sitepoint.com/loop-through-json-response-javascript/
+			  document.getElementById(datadumpID).innerHTML += "<br/>json item iteration : ";
+			  Object.entries(myJson).forEach(([key, value]) => {
+				  console.log(`${key}: ${value}`);
+				  document.getElementById(datadumpID).innerHTML += `<br/> Key(${key}): (${value})`;
+			  });
+			  document.getElementById(logID).innerHTML += ld + "done example iteration of json";
+			  document.getElementById(logID).innerHTML += ld + " end **";
+		  }		
+	</script>
+	  <h2>Log</h2>
+	  <div id='txtLog'>Log:</div>
+	  <h2>Data</h2>
+	  <div id='txtDataDump' style="color:green">default value of data dump</div>
+  </body>
+</html>
