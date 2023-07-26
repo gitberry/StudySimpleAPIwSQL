@@ -20,6 +20,8 @@ CREATE TABLE [dbo].[PointOfInterest](
 	,INDEX      IX_Edited                      NONCLUSTERED (EditedDateTime)
 ) 
 GO
+	
+-- Typically the SQL to populate the table would not be public source - for this example it's fine..
 DECLARE @CreateTimeStamp DateTime = GetDate() -- or some other value
 DECLARE @CreateUser varchar(50) = 'CHR'
 
