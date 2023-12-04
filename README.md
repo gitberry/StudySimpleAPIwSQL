@@ -10,7 +10,7 @@ Steps:
 This is older MS tech (.NET 4.7) - but in this case I wanted an example for situations where .net Core was not practical. 
 
 To see this implemented go:
-https://northberry.ca/api_kristiCA
+https://northberry.ca/api_kristiCA/
 
 
 or to swagger UI for more options
