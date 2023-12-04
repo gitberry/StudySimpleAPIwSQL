@@ -245,7 +245,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="libman.json" />
-    <None Include="learningsSQL.txt.local" />
+    <Content Include="_DeploymentNotest.txt" />
     <EntityDeploy Include="PointOfInterestModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PointOfInterestModel.Designer.cs</LastGenOutput>
@@ -253,9 +253,7 @@
     <Content Include="PointOfInterestModel.edmx.diagram">
       <DependentUpon>PointOfInterestModel.edmx</DependentUpon>
     </Content>
-    <None Include="LeftOversFromPreviousIteration.local" />
     <None Include="README.md" />
-    <None Include="learnings.txt.local" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -264,12 +262,6 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <None Include="SQLresources\CREATETABLEPOI.sql" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
